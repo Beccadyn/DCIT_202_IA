@@ -3,16 +3,12 @@ import React from 'react';
 import { StyleSheet, Text, TextInput, View } from 'react-native';
 
 import Home from './Screens/Home';
+import Login from './Screens/Login';
 
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open  to start working on your app!</Text>
-
-      
-      <StatusBar style="auto" />
-    </View>
+    <Login />
   );
 }
 

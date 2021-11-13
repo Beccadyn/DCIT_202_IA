@@ -2,7 +2,7 @@ import React from 'react';
 import { Colors } from 'react-native/Libraries/NewAppScreen';
 
 const products = {
-    product1: {
+    chairs: {
         id:10,
         name: 'Office chair',
         price: 500,
@@ -11,7 +11,7 @@ const products = {
         image:''
     },
 
-    product2: {
+    women_shoes: {
         id:11,
         name: 'women flat shoe',
         price: 30,
@@ -20,7 +20,7 @@ const products = {
         image:''
     },
 
-    product3: {
+    hoodies: {
         id:12,
         name: 'crop top hoodie',
         price: 50,
@@ -29,7 +29,7 @@ const products = {
         image:''
     },
 
-    product4: {
+    men_shoes: {
         id:13,
         name: 'men ankle length shoe',
         price: 25,
