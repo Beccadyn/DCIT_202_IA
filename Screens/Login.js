@@ -1,43 +1,110 @@
-import { StatusBar } from 'expo-status-bar';
-import React, {useState} from 'react';
-import { StyleSheet, Text, TextInput, Button, View } from 'react-native';
-import { NavigationContainer } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
+import { StatusBar } from "expo-status-bar";
+import React, { useState } from "react";
 
-export default function Login({navigation}) {
-  const [Email, setemail] = useState("")
-  const [Password, setpassword] = useState("")
-    return (
-      
-      <View style={styles.container}>
-        <Navigation/>
-        <Text> Login or sign in to your account</Text>
-        <Text> Email: </Text>
-        <TextInput placeholder='email' onChangeText={(Email)=>setemail(Email)}/>
-        <Text> Password: </Text>
-        <TextInput placeholder='password' onChangeText={(Password)=>setpassword(Password)} secureTextEntry='True'/>
-        <Button title = 'Login' onPress={()=>navigation.navigate('Home')}/>
-        
-        <StatusBar style="auto" />
-      </View>
-    );
-  }
+import {
+  StyleSheet,
+  Text,
+  View,
+  Image,
+  TextInput,
+  Button,
+  TouchableOpacity,
+} from "react-native";
 
-  const Stack = createNativeStackNavigator();
+export default function App( {navigation}) {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
-function Navigation() {
   return (
-    <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen name="Home" component={Home} />
-      </Stack.Navigator>
-    </NavigationContainer>
+    <View style={styles.container}>
+      
+
+      <StatusBar style="auto" />
+      <Text style={styles.Text} > Welcome to Expresso!</Text>
+      <View style={styles.inputView}>
+       
+        <TextInput
+
+          style={styles.TextInput}
+          placeholder="Email."
+          placeholderTextColor="blue"
+          onChangeText={(email) => setEmail(email)}
+        />
+      </View>
+
+      <View style={styles.inputView}>
+        <TextInput
+          style={styles.TextInput}
+          placeholder="Password."
+          placeholderTextColor="blue"
+          secureTextEntry={true}
+          onChangeText={(password) => setPassword(password)}
+        />
+      </View>
+
+      <TouchableOpacity>
+        <Text style={styles.forgot_button}>Forgot Password?</Text>
+      </TouchableOpacity>
+
+      <TouchableOpacity style={styles.loginBtn} onPress={() => navigation.navigate('Home')}>
+
+        <Text style={styles.loginText}>LOGIN</Text>
+      </TouchableOpacity>
+    </View>
   );
 }
 
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: "#fff",
+    alignItems: "center",
+    justifyContent: "center",
+  },
 
+  Text: {
+    backgroundColor:'#008080',
+    borderRadius:30,
+    width:"30%",
+    marginLeft:20,
+    alignItems: "center",
+    justifyContent: "center",
+    
+    marginBottom:20
+    
+  },
 
+  inputView: {
+    backgroundColor: "#00FFFF",
+    borderRadius: 30,
+    width: "70%",
+    height: 45,
+    marginBottom: 20,
 
+    alignItems: "center",
+  },
 
+  TextInput: {
+    height: 50,
+    flex: 1,
+    padding: 10,
+    marginLeft: 20,
+  },
 
+  forgot_button: {
+    height: 30,
+    marginBottom: 30,
+  },
+
+  loginBtn: {
+    width: "80%",
+    borderRadius: 25,
+    height: 50,
+    alignItems: "center",
+    justifyContent: "center",
+    marginTop: 40,
+    backgroundColor: "#00FFFF",
+  },
+
+});
