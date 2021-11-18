@@ -1,7 +1,5 @@
-
 import { StatusBar } from "expo-status-bar";
 import React, { useState } from "react";
-
 import {
   StyleSheet,
   Text,
@@ -12,23 +10,20 @@ import {
   TouchableOpacity,
 } from "react-native";
 
-export default function App( {navigation}) {
+export default function App() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   return (
     <View style={styles.container}>
-      
+     
 
       <StatusBar style="auto" />
-      <Text style={styles.Text} > Welcome to Expresso!</Text>
       <View style={styles.inputView}>
-       
         <TextInput
-
           style={styles.TextInput}
           placeholder="Email."
-          placeholderTextColor="blue"
+          placeholderTextColor="#003f5c"
           onChangeText={(email) => setEmail(email)}
         />
       </View>
@@ -37,7 +32,7 @@ export default function App( {navigation}) {
         <TextInput
           style={styles.TextInput}
           placeholder="Password."
-          placeholderTextColor="blue"
+          placeholderTextColor="#003f5c"
           secureTextEntry={true}
           onChangeText={(password) => setPassword(password)}
         />
@@ -47,8 +42,7 @@ export default function App( {navigation}) {
         <Text style={styles.forgot_button}>Forgot Password?</Text>
       </TouchableOpacity>
 
-      <TouchableOpacity style={styles.loginBtn} onPress={() => navigation.navigate('Home')}>
-
+      <TouchableOpacity style={styles.loginBtn}>
         <Text style={styles.loginText}>LOGIN</Text>
       </TouchableOpacity>
     </View>
@@ -63,20 +57,10 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
 
-  Text: {
-    backgroundColor:'#008080',
-    borderRadius:30,
-    width:"30%",
-    marginLeft:20,
-    alignItems: "center",
-    justifyContent: "center",
-    
-    marginBottom:20
-    
-  },
+  
 
   inputView: {
-    backgroundColor: "#00FFFF",
+    backgroundColor: "#FFC0CB",
     borderRadius: 30,
     width: "70%",
     height: 45,
@@ -104,7 +88,6 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     marginTop: 40,
-    backgroundColor: "#00FFFF",
+    backgroundColor: "#FF1493",
   },
-
 });

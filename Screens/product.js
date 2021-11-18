@@ -1,46 +1,49 @@
-// src/components/Product.js
 import React from 'react';
-import { Text, StyleSheet } from 'react-native';
-import { Card, Button } from 'react-native-elements';
-import { withNavigation } from 'react-navigation';
-
-class product extends React.Component {
-    render() {
-      return (
-        <Card
-            image={{uri: 'https://vader-prod.s3.amazonaws.com/1543958419-810KAtkwn6L.jpg'}}>
-            <Text style={{marginBottom: 10, marginTop: 20 }} h2>
-                Kid shoes
-            </Text>
-            <Text style={styles.price} h4>
-                $ 200
-            </Text>
-            <Text h6 style={styles.description}>
-                added 2h ago
-            </Text>
-            <Button
-            type="clear"
-            title='Buy now'
-            onPress={() => this.props.navigation.navigate('productdetails')} />
-        </Card>
-      );
-    }
+import {Text, Image, View, StyleSheet, TouchableOpacity} from 'react-native';
+export function Product({name, price, image, onPress}) {
+  return (
+    <TouchableOpacity style={styles.card} onPress={onPress}>
+      <Image
+        style={styles.thumb}
+        source={image}
+      />
+      <View style={styles.infoContainer}>
+        <Text style={styles.name}>{name}</Text>
+        <Text style={styles.price}>$ {price}</Text>
+      </View>
+    </TouchableOpacity>
+  );
 }
-
 const styles = StyleSheet.create({
-    name: {
-        color: '#5a647d',
-        fontWeight: 'bold',
-        fontSize: 30
+  card: {
+    backgroundColor: 'white',
+    borderRadius: 16,
+    shadowOpacity: 0.2,
+    shadowRadius: 4,
+    shadowColor: 'black',
+    shadowOffset: {
+      height: 0,
+      width: 0,
     },
-    price: {
-        fontWeight: 'bold',
-        marginBottom: 10
-    },
-    description: {
-        fontSize: 10,
-        color: '#c1c4cd'
-    }
+    elevation: 1,
+    marginVertical: 20,
+  },
+  thumb: {
+    height: 260,
+    borderTopLeftRadius: 16,
+    borderTopRightRadius: 16,
+    width: '100%',
+  },
+  infoContainer: {
+    padding: 16,
+  },
+  name: {
+    fontSize: 22,
+    fontWeight: 'bold',
+  },
+  price: {
+    fontSize: 16,
+    fontWeight: '600',
+    marginBottom: 8,
+  },
 });
-
-export default withNavigation(product);
