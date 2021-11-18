@@ -2,7 +2,7 @@
 import React from 'react';
 import { Text, StyleSheet } from 'react-native';
 import { Card, Button } from 'react-native-elements';
-import { withNavigation } from 'react-navigation';
+//import { withNavigation } from 'react-navigation';
 
 class Product extends React.Component {
     render() {
